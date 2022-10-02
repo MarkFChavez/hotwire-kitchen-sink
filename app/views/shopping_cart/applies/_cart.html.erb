@@ -1,0 +1,21 @@
+<%= turbo_frame_tag @cart do %>
+  <div class="divide-y mb-4">
+    <% @cart.line_items.each do |line_item| %>
+      <div class="flex justify-between">
+        <div class="flex">
+          <span class="mr-2">
+            <%= button_to "❌", remove_shopping_cart_apply_path(product_id: line_item.product_id), method: :delete, class: "text-xs" %>
+          </span>
+          <span class="bg-gray-100 text-black px-2 rounded mr-2"> <%= line_item.quantity %> </span>
+          <span> <%= line_item.product.name %> </span>
+        </div>
+
+        <div> <%= number_to_currency(line_item.subtotal, unit: "P") %> </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="flex flex-row-reverse">
+    total: <%= number_to_currency(@cart.total_price, unit: "P") %>
+  </div>
+<% end %>

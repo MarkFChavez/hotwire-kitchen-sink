@@ -1,0 +1,2 @@
+<%= turbo_stream.update(@cart, partial: "cart") %>
+<%= turbo_stream.update(dom_id(@cart, :number_of_items), @cart.line_items.sum(:quantity)) %>

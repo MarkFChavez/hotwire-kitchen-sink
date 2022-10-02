@@ -1,0 +1,23 @@
+<div class="flex justify-between items-center mb-4">
+  <header class="font-semibold text-xl"> Turbo Cart </header>
+
+  <details class="relative cursor-pointer">
+    <summary> 🛒 (<span id="<%= dom_id(@cart, :number_of_items) %>"><%= @cart.line_items.sum(:quantity) %></span>) </summary>
+
+    <div class="absolute right-0 border rounded bg-gray-100 w-96 p-2">
+      <%= render "cart" %>
+    </div>
+  </details>
+</div>
+
+<div class="grid grid-cols-6 gap-4">
+  <% @products.each do |product| %>
+    <%= button_to(add_shopping_cart_apply_path(product_id: product.id), method: :post) do %>
+      <div class="border rounded">
+        <%= image_tag product.image_url %>
+        <div> <%= product.name %> </div>
+        <div class="font-bold"> <%= number_to_currency(product.price, unit: "P") %> </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
