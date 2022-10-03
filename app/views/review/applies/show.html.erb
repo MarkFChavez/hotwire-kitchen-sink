@@ -1,0 +1,13 @@
+<div class="mb-4">
+  <header class="font-semibold text-xl"> User Reviews </header>
+</div>
+
+<div class="mb-4">
+  <%= render "write_review" %>
+</div>
+
+<%= turbo_frame_tag :review_list do %>
+  <% @reviews.each do |review| %>
+    <%= render "review", review: review %>
+  <% end %>
+<% end %>

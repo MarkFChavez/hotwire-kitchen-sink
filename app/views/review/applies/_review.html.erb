@@ -1,0 +1,15 @@
+<%= turbo_frame_tag review do %>
+  <div class="border rounded p-2 mb-2 w-1/2">
+    <div>
+      <% review.rating.times do %>
+        ⭐️
+      <% end %>
+    </div>
+
+    <span class="text-lg"> <%= review.content %> </span>
+
+    <div class="flex flex-row-reverse">
+      <small> reviewed by: <%= review.author %> </small>
+    </div>
+  </div>
+<% end %>

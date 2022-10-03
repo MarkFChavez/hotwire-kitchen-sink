@@ -1,0 +1,13 @@
+<div>
+  <%= f.text_field :author, class: "border rounded text-sm", placeholder: "Author" %>
+</div>
+
+<div>
+  <%= f.text_area :content, class: "border rounded text-sm", placeholder: "Your review" %>
+</div>
+
+<div class="mb-2">
+  <%= f.number_field :rating, class: "border rounded text-sm", placeholder: "Rating (1 to 5)" %>
+</div>
+
+<%= f.submit "Add review", class: "bg-blue-500 border rounded text-gray-100 p-2 cursor-pointer" %>

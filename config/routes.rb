@@ -10,4 +10,11 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :review do
+    resource :use, only: %i[show]
+    resource :apply, only: %i[show] do
+      post :add
+    end
+  end
+
 end

@@ -1,0 +1,11 @@
+<%= turbo_frame_tag :write_review do %>
+  <details class="cursor-pointer">
+    <summary> Write a review </summary>
+
+    <div class="border rounded bg-white p-2 w-1/2">
+      <%= form_with model: UserReview.new, url: add_review_apply_path do |f| %>
+        <%= render "form", f: f %>
+      <% end %>
+    </div>
+  </details>
+<% end %>
