@@ -4,7 +4,7 @@
       <div class="flex justify-between">
         <div class="flex">
           <span class="mr-2">
-            <%= button_to "❌", remove_shopping_cart_apply_path(product_id: line_item.product_id), method: :delete, class: "text-xs" %>
+            <%= button_to "❌", shopping_cart_path(product_id: line_item.product_id), method: :delete, class: "text-xs" %>
           </span>
           <span class="bg-gray-100 text-black px-2 rounded mr-2"> <%= line_item.quantity %> </span>
           <span> <%= line_item.product.name %> </span>

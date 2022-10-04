@@ -1,0 +1,2 @@
+<%= turbo_stream.update(:write_review, partial: "user_reviews/write_review") %>
+<%= turbo_stream.prepend(:review_list, partial: "user_reviews/review", locals: { review: @review }) %>

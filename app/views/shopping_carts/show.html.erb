@@ -12,7 +12,7 @@
 
 <div class="grid grid-cols-6 gap-4">
   <% @products.each do |product| %>
-    <%= button_to(add_shopping_cart_apply_path(product_id: product.id), method: :post) do %>
+    <%= button_to(shopping_cart_path(product_id: product.id), method: :post) do %>
       <div class="border rounded">
         <%= image_tag product.image_url %>
         <div> <%= product.name %> </div>

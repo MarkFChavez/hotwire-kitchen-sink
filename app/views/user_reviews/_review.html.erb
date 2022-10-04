@@ -1,9 +1,13 @@
 <%= turbo_frame_tag review do %>
   <div class="border rounded p-2 mb-2 w-1/2">
-    <div>
-      <% review.rating.times do %>
-        ⭐️
-      <% end %>
+    <div class="flex justify-between items-center">
+      <div>
+        <% review.rating.times do %>
+          ⭐️
+        <% end %>
+      </div>
+
+      <%= button_to "delete", user_review_path(review), method: :delete, class: "text-red-500 text-sm" %>
     </div>
 
     <span class="text-lg"> <%= review.content %> </span>

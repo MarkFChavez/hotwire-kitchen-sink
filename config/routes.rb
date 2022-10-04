@@ -2,19 +2,12 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  namespace :shopping_cart do
-    resource :use, only: %i[show]
-    resource :apply, only: %i[show] do
-      post :add
-      delete :remove
-    end
+  namespace :components do
+    resource :shopping_cart, only: [:show]
+    resource :user_review, only: [:show]
   end
 
-  namespace :review do
-    resource :use, only: %i[show]
-    resource :apply, only: %i[show] do
-      post :add
-    end
-  end
+  resource :shopping_cart, only: [:show, :create, :destroy]
+  resources :user_reviews, only: [:index, :create, :destroy]
 
 end
