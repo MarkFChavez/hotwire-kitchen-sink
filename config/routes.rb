@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   resource :shopping_cart, only: [:show, :create, :destroy]
-  resources :user_reviews, only: [:index, :create, :destroy]
+  resources :user_reviews, only: [:index, :edit, :update, :create, :destroy]
 
 end

@@ -1,0 +1,22 @@
+<%= turbo_frame_tag @review do %>
+  <%= form_with model: @review, url: user_review_path(@review) do |f| %>
+    <div class="border rounded p-2 mb-2 w-1/2">
+      <div class="flex justify-between items-center">
+        <%= f.number_field :rating, class: "text-sm border rounded" %>
+
+        <div class="flex">
+          <%= button_to "update", user_review_path(@review), method: :patch, class: "text-blue-500 text-sm mr-1" %>
+          <%= link_to "cancel", "#", class: "text-red-500 text-sm mr-1" %>
+        </div>
+      </div>
+
+      <span class="text-lg"> 
+        <%= f.text_area :content, class: "text-sm border rounded" %>
+      </span>
+
+      <div class="flex flex-row-reverse">
+        <small> reviewed by: <%= @review.author %> </small>
+      </div>
+    </div>
+  <% end %>
+<% end %>

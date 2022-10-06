@@ -9,6 +9,15 @@ class UserReviewsController < ApplicationController
     @review.save!
   end
 
+  def edit
+    @review = UserReview.find(params[:id])
+  end
+
+  def update
+    @review = UserReview.find(params[:id])
+    @review.update(user_review_params)
+  end
+
   def destroy
     @review = UserReview.find(params[:id])
     @review.destroy

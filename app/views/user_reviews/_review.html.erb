@@ -7,7 +7,10 @@
         <% end %>
       </div>
 
-      <%= button_to "delete", user_review_path(review), method: :delete, class: "text-red-500 text-sm" %>
+      <div class="flex">
+        <%= button_to "edit", edit_user_review_path(review), method: :get, class: "text-blue-500 text-sm mr-1" %>
+        <%= button_to "delete", user_review_path(review), method: :delete, class: "text-red-500 text-sm" %>
+      </div>
     </div>
 
     <span class="text-lg"> <%= review.content %> </span>
