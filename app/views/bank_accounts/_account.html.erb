@@ -1,0 +1,18 @@
+<div class="border border-blue-500 rounded">
+  <header class="text-center bg-blue-500 text-yellow-300 font-bold p-2 text-lg"> BANK ACCOUNT </header>
+
+  <div class="p-2">
+    <div class="mb-2">
+      <span class="font-semibold text-lg"> BAL: <%= number_to_currency(@bank_account.balance, unit: "P") %> </span>
+    </div>
+
+    <div class="mb-4">
+      <%= button_to "Withdraw", withdraw_bank_account_path, method: :patch, class: "border border-blue-500 rounded py-1 w-full mb-2 hover:bg-blue-500 hover:text-yellow-300" %>
+      <%= button_to "Deposit", deposit_bank_account_path, method: :patch, class: "border border-blue-500 rounded py-1 w-full hover:bg-blue-500 hover:text-yellow-300" %>
+    </div>
+
+    <div class="flex flex-row-reverse">
+      <%= button_to "#{@bank_account.locked? ? "locked" : "unlocked"}", toggle_lock_bank_account_path, method: :patch, class: "text-sm #{@bank_account.locked? ? "text-red-500" : "text-green-500"}" %>
+    </div>
+  </div>
+</div>

@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_03_062935) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_06_091820) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bank_accounts", force: :cascade do |t|
+    t.string "identifier", null: false
+    t.decimal "balance", default: "0.0", null: false
+    t.boolean "locked", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "logs"
+    t.index ["identifier"], name: "index_bank_accounts_on_identifier", unique: true
+  end
 
   create_table "carts", force: :cascade do |t|
     t.string "identifier", null: false

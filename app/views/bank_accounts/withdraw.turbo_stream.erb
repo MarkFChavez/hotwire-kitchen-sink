@@ -1,0 +1,2 @@
+<%= turbo_stream.update(@bank_account, partial: "bank_accounts/account") %>
+<%= turbo_stream.update(dom_id(@bank_account, :logs), partial: "bank_accounts/logs") %>

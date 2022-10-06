@@ -1,0 +1,20 @@
+<header class="font-semibold text-xl mb-4"> Bank Account </header>
+
+<div class="flex">
+  <div class="w-1/4 mr-2">
+    <%= turbo_frame_tag @bank_account do %>
+      <%= render "account" %>
+    <% end %>
+  </div>
+
+  <div class="flex-1 border rounded">
+    <div class="flex flex-row-reverse">
+      <%= button_to "reset logs", reset_logs_bank_account_path, method: :patch, class: "text-red-500 text-xs px-2" %>
+    </div>
+    <div class="p-2">
+      <%= turbo_frame_tag dom_id(@bank_account, :logs) do %>
+        <%= render "logs" %>
+      <% end %>
+    </div>
+  </div>
+</div>
