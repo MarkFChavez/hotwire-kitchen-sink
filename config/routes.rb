@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resource :shopping_cart, only: [:show]
     resource :user_review, only: [:show]
     resource :bank_account, only: [:show]
+    resource :build_log, only: [:show]
   end
 
   resource :shopping_cart, only: [:show, :create, :destroy]
@@ -16,5 +17,6 @@ Rails.application.routes.draw do
     patch :toggle_lock
     patch :reset_logs
   end
+  resource :build_log, only: [:show, :update]
 
 end

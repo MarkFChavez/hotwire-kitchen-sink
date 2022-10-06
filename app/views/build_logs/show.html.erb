@@ -1,0 +1,11 @@
+<%= turbo_stream_from "build_logs" %>
+
+<div class="h-96 mb-2">
+  <%= turbo_frame_tag @build_log do %>
+    <%= render "body", build_log: @build_log %>
+  <% end %>
+</div>
+
+<div class="flex flex-row-reverse">
+  <%= button_to "Run logs", build_log_path, method: :patch, class: "bg-blue-500 text-white p-2 border rounded" %>
+</div>
